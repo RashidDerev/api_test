@@ -18,7 +18,6 @@ export const StoriesContainer = () => {
                 <StoriesContainerWrapper data-test-id="stories-container">
                 <h1 className="main-title">Hacker News Stories</h1>
                 {storyIds.map((storyId, index) => index < 10 ? <Story key={storyId} storyId={storyId}/> : null )};
-                
                 </StoriesContainerWrapper>
         </>
     );

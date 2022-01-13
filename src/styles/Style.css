@@ -16,6 +16,11 @@
     margin: 10px;
     padding: 6px;
     line-height: 25px;
+    transition: all 0.7s;
+}
+
+.story:hover > .story-title > .title{
+    background-color: darkred;
 }
 
 .info{

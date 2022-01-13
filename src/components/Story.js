@@ -19,7 +19,7 @@ export const Story = ({story}) => {
                     </div>
 
                     <div className="story-time info">
-                        Posted: <span>{story.time}</span>
+                        Posted: <span>{new Date(story.time*1000).toLocaleString()}</span>
                     </div>
 
                     <div className="story-score info">

@@ -1,4 +1,7 @@
 import React from 'react';
 import { StoriesContainer } from './containers/StoriesContainer';
 
-export const App = () => <StoriesContainer/>;
+export function App(){ 
+
+return <StoriesContainer/> 
+} 

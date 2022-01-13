@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
-import { getStoryIds } from "../services/hnApi";
+import { getStories as getStories } from "../services/hnApi";
 import { Story } from "../components/Story";
 import { GlobalStyle, StoriesContainerWrapper } from "../styles/StoriesContainerStyles";
-import '../styles/Style.css';
+import '../styles/Style.scss';
 
 export const StoriesContainer = () => {
-    const [storyIds, setStoryIds] = useState([]);
+    const [stories, setStories] = useState([]);
 
     useEffect(() => {
-        getStoryIds().then(data => setStoryIds(data))
+        getStories().then(data => setStories(data))
     }, []);
 
     return( 
@@ -17,7 +17,7 @@ export const StoriesContainer = () => {
                 <div className="top-shadow"></div>
                 <StoriesContainerWrapper data-test-id="stories-container">
                 <h1 className="main-title">Hacker News Stories</h1>
-                {storyIds.map((storyId, index) => index < 10 ? <Story key={storyId} storyId={storyId}/> : null )};
+                {stories.map((story) => <Story key={story.id} story={story}/>)}
                 </StoriesContainerWrapper>
         </>
     );

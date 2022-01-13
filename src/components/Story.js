@@ -1,18 +1,7 @@
-import React, {useState, useEffect} from "react";
-import { getStory, getUser } from "../services/hnApi";
-import '../styles/Style.css';
+import React from "react";
+import '../styles/Style.scss';
 
-export const Story = ({storyId}) => {
-
-    const [story, setStory] = useState({});
-    const [user, setUser] = useState({});
-
-    useEffect(()=>{
-        getStory(storyId).then(data => data && data.url && setStory(data));
-    },[]);
-    useEffect(()=>{
-        getUser(story.by).then(data => setUser(data));
-    },[user.karma]);
+export const Story = ({story}) => {
 
     return story && story.url ? (
         <div className="story">
@@ -26,7 +15,7 @@ export const Story = ({storyId}) => {
                     </div>
 
                     <div className="story-time info">
-                        Karma: <span>{user.karma}</span>
+                        Karma: <span>{story.karma}</span>
                     </div>
 
                     <div className="story-time info">
@@ -38,5 +27,5 @@ export const Story = ({storyId}) => {
                     </div>
                 </div>
         </div>
-    ):null;
+    ):null
 }
